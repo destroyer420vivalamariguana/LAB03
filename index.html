@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Casa de Cambio</title>
+        <h1>CASA DE CAMBIO</h1>
+        <script>
+            function calcularCambio() {
+                const tasaCambio = obtenerTasaCambio();
+                const cantidad = document.getElementById("cantidad").value;
+                const resultado = cantidad /tasaCambio;
+  
+                alert(`El cambio es: ${resultado}`);
+            }
+
+            function obtenerTasaCambio() {
+                const moneda = document.querySelector('input[name="moneda"]:checked').value;
+  
+                switch (moneda) {
+                    case "usd":
+                        return 3.78;
+                    case "eur":
+                        return 4.15;
+                    default:
+                        return 0;
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <form>
+            <label for="usd">USD</label>
+            <input type="radio" id="usd" name="moneda" value="usd">
+            
+            <label for="eur">EUR</label>
+            <input type="radio" id="eur" name="moneda" value="eur"> <br/>
+            
+            <label for="cantidad">Ingrese Monto En Soles:</label> <br>
+            <input type="text" id="cantidad" name="cantidad"> <br/> <br/>
+            
+            <input type="button" value="Calcular" onclick="calcularCambio()">
+          </form>          
+    </body>
+</html>
